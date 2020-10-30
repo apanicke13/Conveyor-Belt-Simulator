@@ -259,7 +259,18 @@ let sideOrientation = sprites.create(img`
 tiles.placeOnTile(sideOrientation, tiles.getTileLocation(10, 9))
 resetBox()
 forever(function () {
-    if (objectWeight == 0.2) {
+    if (box.overlapsWith(pinkButton)) {
+        box.setVelocity(0, 0)
+        if (objectMaterial == "Rubber") {
+            game.showLongText("Rubber", DialogLayout.Top)
+        } else if (objectMaterial == "Porcelain") {
+            game.showLongText("Porcelain", DialogLayout.Top)
+        } else {
+            game.showLongText("Unknown", DialogLayout.Top)
+        }
+    } else if (box.overlapsWith(blueButton)) {
+    	
+    } else {
     	
     }
 })
