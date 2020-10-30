@@ -56,6 +56,9 @@ function resetBox () {
     box.setVelocity(25, 0)
 }
 // Create and place game map and objects
+let Unknown_Height = ""
+let Unknown_Width = ""
+let Unknown_Length = ""
 let orientation = 0
 let objectWeight = 0
 let objectMaterial = ""
@@ -267,6 +270,14 @@ forever(function () {
             game.showLongText("Material: Porcelain \\nBox Length:20\\n Box Width:20\\nBox Height:20 ", DialogLayout.Top)
         } else {
             game.showLongText("Material: Unknown\\nBox Length :", DialogLayout.Top)
+            Unknown_Length = convertToText(boxLength)
+            game.showLongText(Unknown_Length, DialogLayout.Top)
+            game.showLongText("\\n Box Width:", DialogLayout.Top)
+            Unknown_Width = convertToText(boxWidth)
+            game.showLongText(Unknown_Width, DialogLayout.Top)
+            game.showLongText("\\n Box Height:", DialogLayout.Top)
+            Unknown_Height = convertToText(boxHeight)
+            game.showLongText(Unknown_Height, DialogLayout.Top)
         }
     } else if (box.overlapsWith(blueButton)) {
     	
