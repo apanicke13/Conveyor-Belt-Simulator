@@ -262,11 +262,11 @@ forever(function () {
     if (box.overlapsWith(pinkButton)) {
         box.setVelocity(0, 0)
         if (objectMaterial == "Rubber") {
-            game.showLongText("Rubber", DialogLayout.Top)
+            game.showLongText("Material: Rubber \\nBox Length:10\\n Box Width:10\\nBox Height:30 ", DialogLayout.Top)
         } else if (objectMaterial == "Porcelain") {
-            game.showLongText("Porcelain", DialogLayout.Top)
+            game.showLongText("Material: Porcelain \\nBox Length:20\\n Box Width:20\\nBox Height:20 ", DialogLayout.Top)
         } else {
-            game.showLongText("Unknown", DialogLayout.Top)
+            game.showLongText("Material: Unknown\\nBox Length :", DialogLayout.Top)
         }
     } else if (box.overlapsWith(blueButton)) {
     	
