@@ -259,5 +259,5 @@ let sideOrientation = sprites.create(img`
 tiles.placeOnTile(sideOrientation, tiles.getTileLocation(10, 9))
 resetBox()
 forever(function () {
-	
+    pause(100)
 })
