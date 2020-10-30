@@ -260,6 +260,25 @@ let sideOrientation = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.sideBin)
 tiles.placeOnTile(sideOrientation, tiles.getTileLocation(10, 9))
+let First_Right = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(First_Right, tiles.getTileLocation(4, 7))
 resetBox()
 forever(function () {
     if (box.overlapsWith(pinkButton)) {
@@ -269,19 +288,18 @@ forever(function () {
         } else if (objectMaterial == "Porcelain") {
             game.showLongText("Material: Porcelain \\nBox Length:20\\n Box Width:20\\nBox Height:20 ", DialogLayout.Top)
         } else {
-            game.showLongText("Material: Unknown\\nBox Length :", DialogLayout.Top)
             Unknown_Length = convertToText(boxLength)
-            game.showLongText(Unknown_Length, DialogLayout.Top)
-            game.showLongText("\\n Box Width:", DialogLayout.Top)
             Unknown_Width = convertToText(boxWidth)
-            game.showLongText(Unknown_Width, DialogLayout.Top)
-            game.showLongText("\\n Box Height:", DialogLayout.Top)
             Unknown_Height = convertToText(boxHeight)
-            game.showLongText(Unknown_Height, DialogLayout.Top)
+            game.showLongText("Material: Unknown\\nBox Length:" + Unknown_Length + "\\n Box Width:" + boxWidth + "\\n Box Height:" + Unknown_Height, DialogLayout.Top)
         }
-    } else if (box.overlapsWith(blueButton)) {
-    	
-    } else {
-    	
+    }
+    if (controller.A.isPressed()) {
+        if (objectMaterial == "Unknown") {
+            box.setVelocity(25, 0)
+            if (box.overlapsWith(First_Right)) {
+                box.setVelocity(0, -25)
+            }
+        }
     }
 })
