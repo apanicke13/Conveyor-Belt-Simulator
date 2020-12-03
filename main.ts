@@ -56,9 +56,15 @@ function resetBox () {
     box.setVelocity(25, 0)
 }
 // Create and place game map and objects
-let Unknown_Height = ""
-let Unknown_Width = ""
-let Unknown_Length = ""
+let beforeTurn = 0
+let height = ""
+let width = ""
+let length = ""
+let weight = ""
+let boxWeight = 0
+let boxType = 0
+let onButton2 = 0
+let onButton1 = 0
 let orientation = 0
 let objectWeight = 0
 let objectMaterial = ""
@@ -260,7 +266,7 @@ let sideOrientation = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.sideBin)
 tiles.placeOnTile(sideOrientation, tiles.getTileLocation(10, 9))
-let First_Right = sprites.create(img`
+let turn1 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -278,28 +284,66 @@ let First_Right = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.button)
-tiles.placeOnTile(First_Right, tiles.getTileLocation(4, 7))
+tiles.placeOnTile(turn1, tiles.getTileLocation(4, 7))
 resetBox()
 forever(function () {
-    if (box.overlapsWith(pinkButton)) {
+    turn1.setPosition(120, 60)
+    if (!(box.overlapsWith(pinkButton)) && !(box.overlapsWith(blueButton))) {
+        onButton1 = 1
+        onButton2 = 1
+    }
+    if (box.overlapsWith(pinkButton) && onButton1) {
         box.setVelocity(0, 0)
         if (objectMaterial == "Rubber") {
-            game.showLongText("Material: Rubber \\nBox Length:10\\n Box Width:10\\nBox Height:30 ", DialogLayout.Top)
+            boxType = 1
+            boxWeight = 1
+            weight = convertToText(boxWeight)
+            length = convertToText(boxLength)
+            width = convertToText(boxWidth)
+            height = convertToText(boxHeight)
+            game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: " + objectMaterial, DialogLayout.Top)
         } else if (objectMaterial == "Porcelain") {
-            game.showLongText("Material: Porcelain \\nBox Length:20\\n Box Width:20\\nBox Height:20 ", DialogLayout.Top)
+            boxType = 2
+            boxWeight = 0.2
+            weight = convertToText(boxWeight)
+            length = convertToText(boxLength)
+            width = convertToText(boxWidth)
+            height = convertToText(boxHeight)
+            game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: " + objectMaterial, DialogLayout.Top)
         } else {
-            Unknown_Length = convertToText(boxLength)
-            Unknown_Width = convertToText(boxWidth)
-            Unknown_Height = convertToText(boxHeight)
-            game.showLongText("Material: Unknown\\nBox Length:" + Unknown_Length + "\\n Box Width:" + boxWidth + "\\n Box Height:" + Unknown_Height, DialogLayout.Top)
+            boxType = 0
+            length = convertToText(boxLength)
+            width = convertToText(boxWidth)
+            height = convertToText(boxHeight)
+            game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: Unknown", DialogLayout.Top)
+        }
+        if (controller.A.isPressed()) {
+            onButton1 = 0
+            beforeTurn = 1
+            box.setVelocity(25, 0)
         }
     }
-    if (controller.A.isPressed()) {
-        if (objectMaterial == "Unknown") {
+    if (box.overlapsWith(blueButton) && onButton2) {
+        box.setVelocity(0, 0)
+        if (true) {
+        	
+        } else {
+        	
+        }
+        if (controller.A.isPressed()) {
+            onButton2 = 0
+            beforeTurn = 1
             box.setVelocity(25, 0)
-            if (box.overlapsWith(First_Right)) {
-                box.setVelocity(0, -25)
-            }
+        }
+    }
+    if (beforeTurn) {
+        if (boxType == 1 && box.overlapsWith(turn1)) {
+            resetBox()
+        } else if (boxType == 2 && box.overlapsWith(turn1)) {
+            resetBox()
+        } else if (box.overlapsWith(turn1)) {
+            beforeTurn = 0
+            box.setVelocity(0, -25)
         }
     }
 })
