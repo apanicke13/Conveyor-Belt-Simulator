@@ -437,7 +437,7 @@ forever(function () {
     }
     if (box.overlapsWith(blueButton) && onButton2) {
         box.setVelocity(0, 0)
-        if (orientation == 0) {
+        if (orientation == 1) {
             boxType = 0
             game.showLongText("Orientation: Upright", DialogLayout.Top)
         } else {
