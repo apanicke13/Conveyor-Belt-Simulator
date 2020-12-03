@@ -285,9 +285,122 @@ let turn1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.button)
 tiles.placeOnTile(turn1, tiles.getTileLocation(4, 7))
+let turn2 = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(turn2, tiles.getTileLocation(6, 7))
+let turn3 = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(turn3, tiles.getTileLocation(10, 7))
+let stop1 = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(stop1, tiles.getTileLocation(4, 10))
+let stop2 = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(stop2, tiles.getTileLocation(6, 10))
+let stop3 = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(stop3, tiles.getTileLocation(10, 10))
+let stop4 = sprites.create(img`
+    . . . . . . . . . . . . . . . b 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.button)
+tiles.placeOnTile(stop4, tiles.getTileLocation(12, 7))
 resetBox()
 forever(function () {
-    turn1.setPosition(120, 60)
     if (!(box.overlapsWith(pinkButton)) && !(box.overlapsWith(blueButton))) {
         onButton1 = 1
         onButton2 = 1
@@ -295,7 +408,7 @@ forever(function () {
     if (box.overlapsWith(pinkButton) && onButton1) {
         box.setVelocity(0, 0)
         if (objectMaterial == "Rubber") {
-            boxType = 1
+            boxType = 2
             boxWeight = 1
             weight = convertToText(boxWeight)
             length = convertToText(boxLength)
@@ -303,7 +416,7 @@ forever(function () {
             height = convertToText(boxHeight)
             game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: " + objectMaterial, DialogLayout.Top)
         } else if (objectMaterial == "Porcelain") {
-            boxType = 2
+            boxType = 0
             boxWeight = 0.2
             weight = convertToText(boxWeight)
             length = convertToText(boxLength)
@@ -311,11 +424,11 @@ forever(function () {
             height = convertToText(boxHeight)
             game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: " + objectMaterial, DialogLayout.Top)
         } else {
-            boxType = 0
+            boxType = 1
             length = convertToText(boxLength)
             width = convertToText(boxWidth)
             height = convertToText(boxHeight)
-            game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: Unknown", DialogLayout.Top)
+            game.showLongText("Weight: Unknown" + "\\nLength: " + length + "\\nWidth: " + width + "\\nHeight: " + height + "\\nMaterial: Unknown", DialogLayout.Top)
         }
         if (controller.A.isPressed()) {
             onButton1 = 0
@@ -325,10 +438,12 @@ forever(function () {
     }
     if (box.overlapsWith(blueButton) && onButton2) {
         box.setVelocity(0, 0)
-        if (true) {
-        	
+        if (orientation == 0) {
+            boxType = 0
+            game.showLongText("Orientation: Upright", DialogLayout.Top)
         } else {
-        	
+            boxType = 3
+            game.showLongText("Orientation: Side", DialogLayout.Top)
         }
         if (controller.A.isPressed()) {
             onButton2 = 0
@@ -338,12 +453,21 @@ forever(function () {
     }
     if (beforeTurn) {
         if (boxType == 1 && box.overlapsWith(turn1)) {
-            resetBox()
-        } else if (boxType == 2 && box.overlapsWith(turn1)) {
-            resetBox()
-        } else if (box.overlapsWith(turn1)) {
             beforeTurn = 0
-            box.setVelocity(0, -25)
+            box.setVelocity(0, 25)
+        } else if (boxType == 2 && box.overlapsWith(turn2)) {
+            beforeTurn = 0
+            box.setVelocity(0, 25)
+        } else if (boxType == 3 && box.overlapsWith(turn3)) {
+            beforeTurn = 0
+            box.setVelocity(0, 25)
+        } else if (boxType == 0) {
+            beforeTurn = 0
+            box.setVelocity(25, 0)
         }
+    }
+    if (box.overlapsWith(stop1) || (box.overlapsWith(stop2) || (box.overlapsWith(stop3) || box.overlapsWith(stop4)))) {
+        box.setVelocity(0, 0)
+        resetBox()
     }
 })
