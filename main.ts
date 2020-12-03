@@ -55,7 +55,6 @@ function resetBox () {
     pause(200)
     box.setVelocity(25, 0)
 }
-// Create and place game map and objects
 let beforeTurn = 0
 let height = ""
 let width = ""
