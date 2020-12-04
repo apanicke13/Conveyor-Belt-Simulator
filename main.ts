@@ -59,6 +59,7 @@ function resetBox () {
 }
 sprites.onOverlap(SpriteKind.package, SpriteKind.stop, function (sprite, otherSprite) {
     box.setVelocity(0, 0)
+    game.showLongText(name, DialogLayout.Bottom)
     resetBox()
 })
 let beforeTurn = 0
@@ -70,6 +71,7 @@ let boxWeight = 0
 let boxType = 0
 let onButton2 = 0
 let onButton1 = 0
+let name = ""
 let orientation = 0
 let objectWeight = 0
 let objectMaterial = ""
@@ -414,6 +416,7 @@ forever(function () {
     if (box.overlapsWith(pinkButton) && onButton1) {
         box.setVelocity(0, 0)
         if (objectMaterial == "Rubber") {
+            name = "Giant Cheerios"
             boxType = 2
             boxWeight = 1
             weight = convertToText(boxWeight)
@@ -430,6 +433,7 @@ forever(function () {
             height = convertToText(boxHeight)
             game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: " + objectMaterial, DialogLayout.Top)
         } else {
+            name = "Unknown"
             boxType = 1
             length = convertToText(boxLength)
             width = convertToText(boxWidth)
@@ -446,9 +450,11 @@ forever(function () {
         box.setVelocity(0, 0)
         if (orientation == 1) {
             boxType = 0
+            name = "Upright Goat Figurine"
             game.showLongText("Orientation: Upright", DialogLayout.Top)
         } else {
             boxType = 3
+            name = "Sideways Goat Figurine"
             game.showLongText("Orientation: Side", DialogLayout.Top)
         }
         if (controller.A.isPressed()) {
