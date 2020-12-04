@@ -7,6 +7,8 @@ namespace SpriteKind {
     export const downBin = SpriteKind.create()
     export const sideBin = SpriteKind.create()
     export const unknownBin = SpriteKind.create()
+    export const turn = SpriteKind.create()
+    export const stop = SpriteKind.create()
 }
 // Pause the game, click reset to restart the game and bring back the box
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -55,6 +57,10 @@ function resetBox () {
     pause(200)
     box.setVelocity(25, 0)
 }
+sprites.onOverlap(SpriteKind.package, SpriteKind.stop, function (sprite, otherSprite) {
+    box.setVelocity(0, 0)
+    resetBox()
+})
 let beforeTurn = 0
 let height = ""
 let width = ""
@@ -282,7 +288,7 @@ let turn1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.turn)
 tiles.placeOnTile(turn1, tiles.getTileLocation(4, 7))
 let turn2 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
@@ -301,7 +307,7 @@ let turn2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.turn)
 tiles.placeOnTile(turn2, tiles.getTileLocation(6, 7))
 let turn3 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
@@ -320,7 +326,7 @@ let turn3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.turn)
 tiles.placeOnTile(turn3, tiles.getTileLocation(10, 7))
 let stop1 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
@@ -339,7 +345,7 @@ let stop1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.stop)
 tiles.placeOnTile(stop1, tiles.getTileLocation(4, 10))
 let stop2 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
@@ -358,7 +364,7 @@ let stop2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.stop)
 tiles.placeOnTile(stop2, tiles.getTileLocation(6, 10))
 let stop3 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
@@ -377,7 +383,7 @@ let stop3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.stop)
 tiles.placeOnTile(stop3, tiles.getTileLocation(10, 10))
 let stop4 = sprites.create(img`
     . . . . . . . . . . . . . . . b 
@@ -396,10 +402,11 @@ let stop4 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.button)
+    `, SpriteKind.stop)
 tiles.placeOnTile(stop4, tiles.getTileLocation(12, 7))
 resetBox()
 forever(function () {
+    scene.cameraFollowSprite(box)
     if (!(box.overlapsWith(pinkButton)) && !(box.overlapsWith(blueButton))) {
         onButton1 = 1
         onButton2 = 1
@@ -464,9 +471,5 @@ forever(function () {
             beforeTurn = 0
             box.setVelocity(25, 0)
         }
-    }
-    if (box.overlapsWith(stop1) || (box.overlapsWith(stop2) || (box.overlapsWith(stop3) || box.overlapsWith(stop4)))) {
-        box.setVelocity(0, 0)
-        resetBox()
     }
 })
