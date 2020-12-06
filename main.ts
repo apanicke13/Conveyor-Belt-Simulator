@@ -62,7 +62,6 @@ let height = ""
 let width = ""
 let length = ""
 let weight = ""
-let boxWeight = 0
 let boxType = 0
 let name = ""
 let onButton2 = 0
@@ -413,16 +412,14 @@ forever(function () {
         if (objectMaterial == "Rubber") {
             name = "Giant Cheerios"
             boxType = 2
-            boxWeight = 1
-            weight = convertToText(boxWeight)
+            weight = convertToText(objectWeight)
             length = convertToText(boxLength)
             width = convertToText(boxWidth)
             height = convertToText(boxHeight)
             game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: " + objectMaterial, DialogLayout.Top)
         } else if (objectMaterial == "Porcelain") {
             boxType = 0
-            boxWeight = 0.2
-            weight = convertToText(boxWeight)
+            weight = convertToText(objectWeight)
             length = convertToText(boxLength)
             width = convertToText(boxWidth)
             height = convertToText(boxHeight)
@@ -430,10 +427,11 @@ forever(function () {
         } else {
             name = "Unknown"
             boxType = 1
+            weight = convertToText(objectWeight)
             length = convertToText(boxLength)
             width = convertToText(boxWidth)
             height = convertToText(boxHeight)
-            game.showLongText("Weight: Unknown" + "\\nLength: " + length + "\\nWidth: " + width + "\\nHeight: " + height + "\\nMaterial: Unknown", DialogLayout.Top)
+            game.showLongText("Weight: " + weight + "\\nLength: " + length + "\\nHeight: " + width + "\\nHeight: " + height + "\\nMaterial: Unknown", DialogLayout.Top)
         }
         if (controller.A.isPressed()) {
             onButton1 = 0
