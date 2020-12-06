@@ -57,11 +57,6 @@ function resetBox () {
     pause(200)
     box.setVelocity(25, 0)
 }
-sprites.onOverlap(SpriteKind.package, SpriteKind.stop, function (sprite, otherSprite) {
-    box.setVelocity(0, 0)
-    game.showLongText(name, DialogLayout.Bottom)
-    resetBox()
-})
 let beforeTurn = 0
 let height = ""
 let width = ""
@@ -69,9 +64,9 @@ let length = ""
 let weight = ""
 let boxWeight = 0
 let boxType = 0
+let name = ""
 let onButton2 = 0
 let onButton1 = 0
-let name = ""
 let orientation = 0
 let objectWeight = 0
 let objectMaterial = ""
@@ -477,5 +472,10 @@ forever(function () {
             beforeTurn = 0
             box.setVelocity(25, 0)
         }
+    }
+    if (box.overlapsWith(stop1) || (box.overlapsWith(stop2) || (box.overlapsWith(stop3) || box.overlapsWith(stop4)))) {
+        box.setVelocity(0, 0)
+        game.showLongText(name, DialogLayout.Bottom)
+        resetBox()
     }
 })
